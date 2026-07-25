@@ -1,0 +1,4 @@
+1. Extraia todo o conteúdo do arquivo ZIP.
+2. Abra o arquivo index.html no navegador.
+3. Use Visualizar ou Baixar PDF em cada lição.
+4. Não mova o index.html para fora da pasta, pois ele usa os PDFs da subpasta pdfs.
