@@ -35,6 +35,20 @@ a { color: var(--verde-escuro); }
   width: 100%; height: auto; aspect-ratio: 2000 / 316; object-fit: contain;
 }
 .pagina-apoio { width: min(1280px, calc(100% - 28px)); margin: 24px auto 0; }
+.acoes-documento {
+  display: flex; justify-content: flex-end; margin: 0 0 14px;
+}
+.btn-imprimir {
+  min-height: 46px; padding: 11px 20px; border: 0; border-radius: 999px;
+  color: #fff; background: var(--verde); font: inherit; font-weight: 850;
+  cursor: pointer; box-shadow: 0 9px 24px rgba(11,149,72,.22);
+  transition: transform .18s ease, background .18s ease;
+}
+.btn-imprimir::before { content: "🖨️"; margin-right: 9px; }
+.btn-imprimir:hover, .btn-imprimir:focus-visible {
+  background: var(--verde-escuro); transform: translateY(-1px);
+  outline: 3px solid rgba(242,183,5,.55); outline-offset: 3px;
+}
 .licao-betel.jovens {
   overflow: hidden; background: var(--branco); border-radius: 26px; box-shadow: var(--sombra);
 }
@@ -126,6 +140,8 @@ footer { padding: 28px; color: #fff; background: #073d21; text-align: center; }
   .cabecalho-site { padding: 8px 8px 0; }
   .cabecalho-site a { border-radius: 12px; border-bottom-width: 3px; }
   .pagina-apoio { width: min(100% - 16px, 1280px); margin-top: 12px; }
+  .acoes-documento { justify-content: stretch; margin-bottom: 10px; }
+  .btn-imprimir { width: 100%; }
   .licao-betel.jovens { border-radius: 16px; }
   .hero-licao, .hero-licao > img { min-height: 360px; height: 360px; }
   .ficha-licao { grid-template-columns: 1fr; }
@@ -137,12 +153,54 @@ footer { padding: 28px; color: #fff; background: #073d21; text-align: center; }
   .perguntas-dialogo { padding: 20px 18px; }
   .navegacao-licoes { grid-template-columns: 1fr; }
 }
+@page {
+  size: A4 portrait;
+  margin: 7mm;
+}
 @media print {
-  body { background: #fff; font-size: 11pt; }
-  .cabecalho-site { box-shadow: none; }
-  .pagina-apoio { width: 100%; margin: 0; }
-  .licao-betel.jovens { box-shadow: none; border-radius: 0; }
-  .hero-licao, .hero-licao > img { height: 270px; min-height: 270px; }
-  .navegacao-licoes, footer, .pular { display: none; }
-  .subtopico-jovens, .destaque, .aplicacao-pratica { break-inside: avoid; }
+  html, body { width: 100%; margin: 0; padding: 0; background: #fff; }
+  body {
+    color: #111; font-size: 10.5pt; line-height: 1.55;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .cabecalho-site { width: 100%; padding: 0; background: #fff; }
+  .cabecalho-site a {
+    width: 100%; max-width: none; margin: 0; border-radius: 0;
+    border-bottom: 1.5mm solid var(--dourado); box-shadow: none;
+  }
+  .cabecalho-site img { width: 100%; height: auto; }
+  .pagina-apoio { width: 100%; max-width: none; margin: 4mm 0 0; }
+  .licao-betel.jovens {
+    width: 100%; max-width: none; overflow: visible;
+    border-radius: 0; box-shadow: none;
+  }
+  .hero-licao, .hero-licao > img { height: 62mm; min-height: 62mm; }
+  .hero-titulo { left: 7mm; right: 7mm; bottom: 6mm; }
+  .hero-titulo span { padding: 1.5mm 3mm; font-size: 8pt; }
+  .hero-titulo h1 { max-width: 100%; font-size: 25pt; line-height: 1; }
+  .ficha-licao, .abertura, .bloco-tema, .subsidio-educador,
+  .complementando-jovens, .conclusao-jovens {
+    width: 100%; padding: 5mm; margin: 0;
+  }
+  .ficha-licao {
+    display: grid; grid-template-columns: 1fr; gap: 2.5mm;
+  }
+  .ficha-licao > :nth-child(2), .ficha-licao > :nth-child(3) { grid-column: auto; }
+  .destaque { margin: 4mm 5mm; padding: 4mm; }
+  .grade-subtopicos { display: block; margin-top: 5mm; }
+  .subtopico-jovens {
+    display: block; margin: 0 0 5mm; padding: 4.5mm;
+    border-radius: 2mm; box-shadow: none; break-inside: auto;
+  }
+  .subtopico-jovens p { font-size: 10.5pt; }
+  .perguntas-dialogo { margin-top: 5mm; padding: 4mm; }
+  .aplicacao-pratica { margin-top: 3mm; padding: 3.5mm; }
+  .bloco-tema > p, .abertura > p, .subsidio-educador > p,
+  .complementando-jovens > p, .conclusao-jovens > p { max-width: none; }
+  h1, h2, h3 { break-after: avoid-page; page-break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  .destaque, .aplicacao-pratica, .perguntas-dialogo {
+    break-inside: avoid-page; page-break-inside: avoid;
+  }
+  .acoes-documento, .navegacao-licoes, footer, .pular { display: none !important; }
 }
