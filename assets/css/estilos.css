@@ -813,3 +813,157 @@ a {
     text-decoration: none !important;
   }
 }
+
+/* ==========================================================
+   Ajuste final do PDF — cabeçalho Jovens e arte completa
+   Cabeçalho institucional em toda a largura útil do A4,
+   imagem temática sem recorte e rodapé social no PDF.
+   ========================================================== */
+@media print {
+  /* Cabeçalho institucional: ocupa toda a largura útil da folha. */
+  .cabecalho-site {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 2.5mm !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .cabecalho-site a {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .cabecalho-site img {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  /* A arte da lição mantém a proporção original 3:2 e não é cortada. */
+  .hero-licao {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 3 / 2 !important;
+    margin: 0 0 3mm !important;
+    overflow: hidden !important;
+    border: 0.3mm solid #d3d3d3 !important;
+    border-radius: 1.5mm !important;
+    background: #fff !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+  }
+
+  .hero-licao > img {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #fff !important;
+  }
+
+  .hero-titulo {
+    right: 6mm !important;
+    bottom: 5mm !important;
+    left: 6mm !important;
+  }
+
+  .hero-titulo h1 {
+    font-size: 22pt !important;
+    line-height: 1.02 !important;
+  }
+
+  /* No PDF, apenas o botão é ocultado; redes, marca e identificação permanecem. */
+  .acoes-documento {
+    display: none !important;
+  }
+
+  .rodape-social {
+    display: block !important;
+    width: 100% !important;
+    margin: 3mm 0 0 !important;
+    padding: 0 !important;
+    border-top: 0.45mm solid var(--dourado-500) !important;
+    background: #fff !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+  }
+
+  .rodape-social-conteudo {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto auto !important;
+    align-items: center !important;
+    gap: 2mm !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 2mm 0 0 !important;
+    text-align: left !important;
+  }
+
+  .redes-sociais {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 1mm !important;
+    min-width: 0 !important;
+  }
+
+  .link-rede {
+    display: inline-flex !important;
+    min-height: 0 !important;
+    padding: 0.8mm 1.3mm !important;
+    border: 0.2mm solid #d7e5de !important;
+    border-radius: 999px !important;
+    box-shadow: none !important;
+    font-size: 6.1pt !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .link-rede img {
+    width: 4mm !important;
+    height: 4mm !important;
+    margin-right: 0.8mm !important;
+    object-fit: contain !important;
+  }
+
+  .marca-rodape {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+
+  .marca-rodape img {
+    width: 11mm !important;
+    height: 11mm !important;
+    object-fit: contain !important;
+  }
+
+  .rodape-assinatura {
+    display: block !important;
+    margin: 0 !important;
+    color: #315064 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 6.2pt !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    text-align: right !important;
+  }
+}
