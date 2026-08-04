@@ -16,7 +16,7 @@
   </header>
   <main id="conteudo" class="pagina-apoio">
     <div class="acoes-documento">
-      <button class="btn-imprimir" type="button" onclick="window.print()" aria-label="Imprimir este apoio pedagógico ou salvar como PDF">
+      <button class="btn-imprimir" type="button" onclick="const tituloOriginal=document.title; const numeroLicao=(location.pathname.match(/licao-(\d+)/i)||[,''])[1]; document.title=`Apoio Pedagógico Lição ${Number(numeroLicao)} Jovens`; window.addEventListener('afterprint',()=>{document.title=tituloOriginal;},{once:true}); window.print();" aria-label="Imprimir este apoio pedagógico ou salvar como PDF">
         Imprimir / Salvar em PDF
       </button>
     </div>
