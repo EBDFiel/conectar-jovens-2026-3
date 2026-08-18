@@ -682,16 +682,17 @@ a {
   }
 
   /*
-     Arte principal menor e centralizada no A4.
-     Mantém a proporção 3:2 e exibe a imagem inteira, sem corte.
+     Arte principal no A4: mantém a largura total do conteúdo e economiza
+     espaço apenas na altura. A fotografia é recortada verticalmente, sem
+     deformação, preservando o impacto visual e o alinhamento com o cabeçalho.
   */
   .hero-licao {
-    width: 148mm !important;
-    max-width: 100% !important;
-    height: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 92mm !important;
     min-height: 0 !important;
-    aspect-ratio: 3 / 2 !important;
-    margin: 0 auto 2.8mm !important;
+    aspect-ratio: auto !important;
+    margin: 0 0 2.8mm !important;
     overflow: hidden !important;
     border: 0.3mm solid #d3d3d3 !important;
     border-radius: 1.5mm !important;
@@ -707,8 +708,8 @@ a {
     width: 100% !important;
     height: 100% !important;
     max-width: none !important;
-    object-fit: contain !important;
-    object-position: center !important;
+    object-fit: cover !important;
+    object-position: center 46% !important;
     background: #fff !important;
   }
 
@@ -963,7 +964,7 @@ a {
     font-size: 10.15pt !important;
     line-height: 1.34 !important;
   }
-  body.apoio-print-spacious .hero-licao { width: 154mm !important; }
+  body.apoio-print-spacious .hero-licao { width: 100% !important; height: 98mm !important; }
   body.apoio-print-spacious .licao-betel.jovens > section,
   body.apoio-print-spacious .licao-betel.jovens > section:first-of-type { margin-bottom: 3.05mm !important; }
   body.apoio-print-spacious .abertura,
@@ -984,7 +985,7 @@ a {
     font-size: 9.35pt !important;
     line-height: 1.27 !important;
   }
-  body.apoio-print-compact .hero-licao { width: 140mm !important; margin-bottom: 2.3mm !important; }
+  body.apoio-print-compact .hero-licao { width: 100% !important; height: 86mm !important; margin-bottom: 2.3mm !important; }
   body.apoio-print-compact .cabecalho-site { margin-bottom: 1.8mm !important; }
   body.apoio-print-compact .licao-betel.jovens > section,
   body.apoio-print-compact .licao-betel.jovens > section:first-of-type { margin-bottom: 2.25mm !important; }
@@ -1010,7 +1011,7 @@ a {
     font-size: 9.05pt !important;
     line-height: 1.23 !important;
   }
-  body.apoio-print-tight .hero-licao { width: 134mm !important; margin-bottom: 1.9mm !important; }
+  body.apoio-print-tight .hero-licao { width: 100% !important; height: 82mm !important; margin-bottom: 1.9mm !important; }
   body.apoio-print-tight .cabecalho-site { margin-bottom: 1.5mm !important; }
   body.apoio-print-tight .hero-titulo h1 { font-size: 18.5pt !important; }
   body.apoio-print-tight .licao-betel.jovens > section,
