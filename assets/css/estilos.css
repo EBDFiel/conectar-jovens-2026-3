@@ -602,7 +602,9 @@ a {
 }
 
 /* ==========================================================
-   Impressão e PDF — A4 com melhor aproveitamento de página
+   Impressão e PDF — A4 inteligente | Classe Jovens
+   O JavaScript escolhe o perfil que melhor aproveita as folhas
+   sem sacrificar a legibilidade.
    ========================================================== */
 @page {
   size: A4 portrait;
@@ -619,18 +621,46 @@ a {
     color: #111 !important;
     background: #fff !important;
     font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 9.7pt !important;
-    line-height: 1.34 !important;
+    font-size: 9.75pt !important;
+    line-height: 1.32 !important;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
 
   .pular,
-  .cabecalho-site,
   .acoes-documento,
-  .navegacao-licoes,
-  .rodape-social {
+  .navegacao-licoes {
     display: none !important;
+  }
+
+  /* Cabeçalho institucional preservado no PDF. */
+  .cabecalho-site {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 2.2mm !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .cabecalho-site a,
+  .cabecalho-site img {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .cabecalho-site img {
+    height: auto !important;
+    object-fit: contain !important;
   }
 
   .pagina-apoio {
@@ -651,213 +681,17 @@ a {
     background: #fff !important;
   }
 
+  /*
+     Arte principal menor e centralizada no A4.
+     Mantém a proporção 3:2 e exibe a imagem inteira, sem corte.
+  */
   .hero-licao {
-    min-height: 0 !important;
-    height: 48mm !important;
-    margin: 0 0 4mm !important;
-    overflow: hidden !important;
-    border: 0.3mm solid #d3d3d3 !important;
-    border-radius: 2mm !important;
-    break-inside: avoid;
-  }
-
-  .hero-titulo {
-    right: 6mm !important;
-    bottom: 5mm !important;
-    left: 6mm !important;
-  }
-
-  .hero-titulo span {
-    margin-bottom: 2mm !important;
-    padding: 1.2mm 2.2mm !important;
-    font-size: 7.3pt !important;
-  }
-
-  .hero-titulo h1 {
-    font-size: 24pt !important;
-    line-height: 1.02 !important;
-  }
-
-  .licao-betel.jovens > section,
-  .licao-betel.jovens > section:first-of-type {
-    margin: 0 0 3.2mm !important;
-  }
-
-  .ficha-licao,
-  .abertura,
-  .bloco-tema,
-  .subsidio-educador,
-  .complementando-jovens,
-  .conclusao-jovens,
-  .destaque {
-    border-width: 0.28mm !important;
-    border-radius: 2mm !important;
-    box-shadow: none !important;
-  }
-
-  .ficha-licao {
-    display: block !important;
-    padding: 2.4mm 2.8mm !important;
-    break-inside: auto !important;
-  }
-
-  .ficha-licao > p,
-  .ficha-licao > div {
-    display: block !important;
-    width: auto !important;
-    margin: 0 0 1.8mm !important;
-    padding: 2mm 2.5mm !important;
-    border-width: 0.25mm !important;
-    border-radius: 1.5mm !important;
-    break-inside: auto !important;
-  }
-
-  .ficha-licao > :last-child {
-    margin-bottom: 0 !important;
-  }
-
-  .abertura,
-  .bloco-tema,
-  .subsidio-educador,
-  .complementando-jovens,
-  .conclusao-jovens {
-    padding: 3.3mm 3.8mm !important;
-  }
-
-  .destaque {
-    padding: 2.8mm 3.4mm !important;
-    break-inside: avoid;
-  }
-
-  .licao-betel h2 {
-    margin: 0 0 2.2mm !important;
-    font-size: 16pt !important;
-    line-height: 1.12 !important;
-    break-after: avoid;
-    page-break-after: avoid;
-  }
-
-  .licao-betel h3 {
-    margin: 0 0 1.5mm !important;
-    font-size: 12.2pt !important;
-    line-height: 1.15 !important;
-    break-after: avoid;
-    page-break-after: avoid;
-  }
-
-  .licao-betel p {
-    margin: 0 0 2.1mm !important;
-    orphans: 3;
-    widows: 3;
-  }
-
-  .licao-betel ul,
-  .licao-betel ol {
-    margin-top: 1.2mm !important;
-    margin-bottom: 1.8mm !important;
-  }
-
-  .bloco-tema {
-    border-top-width: 1.2mm !important;
-    break-inside: auto !important;
-  }
-
-  .bloco-tema > h2 {
-    padding-bottom: 1.6mm !important;
-    margin-bottom: 2mm !important;
-  }
-
-  .grade-subtopicos {
-    display: block !important;
-    margin-top: 2.4mm !important;
-  }
-
-  .subtopico-jovens {
-    margin: 0 0 2.6mm !important;
-    padding: 3mm 3.4mm !important;
-    border-radius: 1.8mm !important;
-    break-inside: auto !important;
-  }
-
-  .aplicacao-pratica {
-    margin: 2.2mm 0 !important;
-    padding: 2.4mm 3mm !important;
-    border-left-width: 1mm !important;
-    border-radius: 1.4mm !important;
-    break-inside: auto !important;
-  }
-
-  .perguntas-dialogo {
-    margin-top: 2.4mm !important;
-    padding: 3mm 3.4mm !important;
-    border-radius: 1.8mm !important;
-    break-inside: auto !important;
-  }
-
-  .subsidio-educador,
-  .complementando-jovens,
-  .conclusao-jovens {
-    border-top-width: 1.2mm !important;
-    break-inside: auto !important;
-  }
-
-  .ficha-licao strong,
-  .destaque strong,
-  .aplicacao-pratica strong {
-    color: #173f5f !important;
-  }
-
-  a,
-  a:visited {
-    color: inherit !important;
-    text-decoration: none !important;
-  }
-}
-
-/* ==========================================================
-   Ajuste final do PDF — cabeçalho Jovens e arte completa
-   Cabeçalho institucional em toda a largura útil do A4,
-   imagem temática sem recorte e rodapé social no PDF.
-   ========================================================== */
-@media print {
-  /* Cabeçalho institucional: ocupa toda a largura útil da folha. */
-  .cabecalho-site {
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 0 2.5mm !important;
-    padding: 0 !important;
-    overflow: visible !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: #fff !important;
-    box-shadow: none !important;
-    break-inside: avoid-page !important;
-    page-break-inside: avoid !important;
-    break-after: avoid-page !important;
-    page-break-after: avoid !important;
-  }
-
-  .cabecalho-site a {
-    display: block !important;
-    width: 100% !important;
-  }
-
-  .cabecalho-site img {
-    display: block !important;
-    width: 100% !important;
-    max-width: none !important;
-    height: auto !important;
-    object-fit: contain !important;
-  }
-
-  /* A arte da lição mantém a proporção original 3:2 e não é cortada. */
-  .hero-licao {
-    width: 100% !important;
+    width: 148mm !important;
+    max-width: 100% !important;
     height: auto !important;
     min-height: 0 !important;
     aspect-ratio: 3 / 2 !important;
-    margin: 0 0 3mm !important;
+    margin: 0 auto 2.8mm !important;
     overflow: hidden !important;
     border: 0.3mm solid #d3d3d3 !important;
     border-radius: 1.5mm !important;
@@ -879,25 +713,180 @@ a {
   }
 
   .hero-titulo {
-    right: 6mm !important;
-    bottom: 5mm !important;
-    left: 6mm !important;
+    right: 5mm !important;
+    bottom: 4mm !important;
+    left: 5mm !important;
+  }
+
+  .hero-titulo span {
+    margin-bottom: 1.4mm !important;
+    padding: 1mm 1.8mm !important;
+    font-size: 6.8pt !important;
   }
 
   .hero-titulo h1 {
-    font-size: 22pt !important;
+    font-size: 19.5pt !important;
     line-height: 1.02 !important;
   }
 
-  /* No PDF, apenas o botão é ocultado; redes, marca e identificação permanecem. */
-  .acoes-documento {
-    display: none !important;
+  .licao-betel.jovens > section,
+  .licao-betel.jovens > section:first-of-type {
+    margin: 0 0 2.8mm !important;
   }
 
+  .ficha-licao,
+  .abertura,
+  .bloco-tema,
+  .subsidio-educador,
+  .complementando-jovens,
+  .conclusao-jovens,
+  .destaque {
+    border-width: 0.28mm !important;
+    border-radius: 2mm !important;
+    box-shadow: none !important;
+  }
+
+  .ficha-licao {
+    display: block !important;
+    padding: 2.1mm 2.5mm !important;
+    break-inside: auto !important;
+  }
+
+  .ficha-licao > p,
+  .ficha-licao > div {
+    display: block !important;
+    width: auto !important;
+    margin: 0 0 1.45mm !important;
+    padding: 1.7mm 2.2mm !important;
+    border-width: 0.25mm !important;
+    border-radius: 1.5mm !important;
+    break-inside: auto !important;
+  }
+
+  .ficha-licao > :last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .abertura,
+  .bloco-tema,
+  .subsidio-educador,
+  .complementando-jovens,
+  .conclusao-jovens {
+    padding: 3mm 3.4mm !important;
+  }
+
+  .destaque {
+    padding: 2.5mm 3mm !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+  }
+
+  .licao-betel h2 {
+    margin: 0 0 1.8mm !important;
+    font-size: 15.5pt !important;
+    line-height: 1.1 !important;
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .licao-betel h3 {
+    margin: 0 0 1.35mm !important;
+    font-size: 11.9pt !important;
+    line-height: 1.13 !important;
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .licao-betel p {
+    margin: 0 0 1.7mm !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .licao-betel ul,
+  .licao-betel ol {
+    margin-top: 1mm !important;
+    margin-bottom: 1.5mm !important;
+  }
+
+  .bloco-tema {
+    border-top-width: 1.2mm !important;
+    break-inside: auto !important;
+  }
+
+  .bloco-tema > h2 {
+    padding-bottom: 1.35mm !important;
+    margin-bottom: 1.7mm !important;
+  }
+
+  .grade-subtopicos {
+    display: block !important;
+    margin-top: 2mm !important;
+  }
+
+  .subtopico-jovens {
+    margin: 0 0 2.2mm !important;
+    padding: 2.7mm 3.1mm !important;
+    border-radius: 1.8mm !important;
+    break-inside: auto !important;
+  }
+
+  .aplicacao-pratica {
+    margin: 1.8mm 0 !important;
+    padding: 2.1mm 2.7mm !important;
+    border-left-width: 1mm !important;
+    border-radius: 1.4mm !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Evita deixar a Aplicação Prática sozinha no topo da folha quando há espaço. */
+  .abertura > p:has(+ .aplicacao-pratica),
+  .bloco-tema > p:has(+ .aplicacao-pratica),
+  .subtopico-jovens > p:has(+ .aplicacao-pratica),
+  .conclusao-jovens > p:has(+ .aplicacao-pratica) {
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .perguntas-dialogo {
+    margin-top: 2mm !important;
+    padding: 2.7mm 3.1mm !important;
+    border-radius: 1.8mm !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+  }
+
+  .subsidio-educador,
+  .complementando-jovens,
+  .conclusao-jovens {
+    border-top-width: 1.2mm !important;
+    break-inside: auto !important;
+  }
+
+  /* Evita abrir o Subsídio no fim da folha com apenas um parágrafo curto. */
+  .subsidio-educador > p:first-of-type {
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .ficha-licao strong,
+  .destaque strong,
+  .aplicacao-pratica strong {
+    color: #173f5f !important;
+  }
+
+  a,
+  a:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /* Rodapé social preservado, mas compacto. */
   .rodape-social {
     display: block !important;
     width: 100% !important;
-    margin: 3mm 0 0 !important;
+    margin: 2.2mm 0 0 !important;
     padding: 0 !important;
     border-top: 0.45mm solid var(--dourado-500) !important;
     background: #fff !important;
@@ -909,11 +898,11 @@ a {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto auto !important;
     align-items: center !important;
-    gap: 2mm !important;
+    gap: 1.7mm !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
-    padding: 2mm 0 0 !important;
+    padding: 1.6mm 0 0 !important;
     text-align: left !important;
   }
 
@@ -921,26 +910,26 @@ a {
     display: flex !important;
     flex-wrap: nowrap !important;
     justify-content: flex-start !important;
-    gap: 1mm !important;
+    gap: 0.8mm !important;
     min-width: 0 !important;
   }
 
   .link-rede {
     display: inline-flex !important;
     min-height: 0 !important;
-    padding: 0.8mm 1.3mm !important;
+    padding: 0.7mm 1.1mm !important;
     border: 0.2mm solid #d7e5de !important;
     border-radius: 999px !important;
     box-shadow: none !important;
-    font-size: 6.1pt !important;
+    font-size: 5.9pt !important;
     line-height: 1 !important;
     white-space: nowrap !important;
   }
 
   .link-rede img {
-    width: 4mm !important;
-    height: 4mm !important;
-    margin-right: 0.8mm !important;
+    width: 3.7mm !important;
+    height: 3.7mm !important;
+    margin-right: 0.65mm !important;
     object-fit: contain !important;
   }
 
@@ -951,8 +940,8 @@ a {
   }
 
   .marca-rodape img {
-    width: 11mm !important;
-    height: 11mm !important;
+    width: 10mm !important;
+    height: 10mm !important;
     object-fit: contain !important;
   }
 
@@ -961,9 +950,89 @@ a {
     margin: 0 !important;
     color: #315064 !important;
     font-family: Arial, Helvetica, sans-serif !important;
-    font-size: 6.2pt !important;
-    line-height: 1.15 !important;
+    font-size: 6pt !important;
+    line-height: 1.12 !important;
     white-space: nowrap !important;
     text-align: right !important;
   }
+
+  /* ========================================================
+     Perfis adaptativos escolhidos automaticamente pelo JS.
+     ======================================================== */
+  body.apoio-print-spacious {
+    font-size: 10.15pt !important;
+    line-height: 1.34 !important;
+  }
+  body.apoio-print-spacious .hero-licao { width: 154mm !important; }
+  body.apoio-print-spacious .licao-betel.jovens > section,
+  body.apoio-print-spacious .licao-betel.jovens > section:first-of-type { margin-bottom: 3.05mm !important; }
+  body.apoio-print-spacious .abertura,
+  body.apoio-print-spacious .bloco-tema,
+  body.apoio-print-spacious .subsidio-educador,
+  body.apoio-print-spacious .complementando-jovens,
+  body.apoio-print-spacious .conclusao-jovens { padding: 3.15mm 3.55mm !important; }
+  body.apoio-print-spacious .licao-betel p { margin-bottom: 1.85mm !important; }
+  body.apoio-print-spacious .licao-betel h2 { font-size: 15.9pt !important; }
+  body.apoio-print-spacious .licao-betel h3 { font-size: 12.15pt !important; }
+
+  body.apoio-print-balanced {
+    font-size: 9.75pt !important;
+    line-height: 1.32 !important;
+  }
+
+  body.apoio-print-compact {
+    font-size: 9.35pt !important;
+    line-height: 1.27 !important;
+  }
+  body.apoio-print-compact .hero-licao { width: 140mm !important; margin-bottom: 2.3mm !important; }
+  body.apoio-print-compact .cabecalho-site { margin-bottom: 1.8mm !important; }
+  body.apoio-print-compact .licao-betel.jovens > section,
+  body.apoio-print-compact .licao-betel.jovens > section:first-of-type { margin-bottom: 2.25mm !important; }
+  body.apoio-print-compact .ficha-licao { padding: 1.75mm 2.2mm !important; }
+  body.apoio-print-compact .ficha-licao > p,
+  body.apoio-print-compact .ficha-licao > div { margin-bottom: 1.05mm !important; padding: 1.4mm 1.9mm !important; }
+  body.apoio-print-compact .abertura,
+  body.apoio-print-compact .bloco-tema,
+  body.apoio-print-compact .subsidio-educador,
+  body.apoio-print-compact .complementando-jovens,
+  body.apoio-print-compact .conclusao-jovens { padding: 2.55mm 3mm !important; }
+  body.apoio-print-compact .destaque { padding: 2.1mm 2.7mm !important; }
+  body.apoio-print-compact .licao-betel h2 { margin-bottom: 1.45mm !important; font-size: 15pt !important; }
+  body.apoio-print-compact .licao-betel h3 { margin-bottom: 1.1mm !important; font-size: 11.55pt !important; }
+  body.apoio-print-compact .licao-betel p { margin-bottom: 1.3mm !important; }
+  body.apoio-print-compact .grade-subtopicos { margin-top: 1.6mm !important; }
+  body.apoio-print-compact .subtopico-jovens { margin-bottom: 1.7mm !important; padding: 2.25mm 2.7mm !important; }
+  body.apoio-print-compact .aplicacao-pratica { margin: 1.35mm 0 !important; padding: 1.7mm 2.3mm !important; }
+  body.apoio-print-compact .perguntas-dialogo { margin-top: 1.6mm !important; padding: 2.2mm 2.7mm !important; }
+  body.apoio-print-compact .rodape-social { margin-top: 1.6mm !important; }
+
+  body.apoio-print-tight {
+    font-size: 9.05pt !important;
+    line-height: 1.23 !important;
+  }
+  body.apoio-print-tight .hero-licao { width: 134mm !important; margin-bottom: 1.9mm !important; }
+  body.apoio-print-tight .cabecalho-site { margin-bottom: 1.5mm !important; }
+  body.apoio-print-tight .hero-titulo h1 { font-size: 18.5pt !important; }
+  body.apoio-print-tight .licao-betel.jovens > section,
+  body.apoio-print-tight .licao-betel.jovens > section:first-of-type { margin-bottom: 1.85mm !important; }
+  body.apoio-print-tight .ficha-licao { padding: 1.5mm 1.95mm !important; }
+  body.apoio-print-tight .ficha-licao > p,
+  body.apoio-print-tight .ficha-licao > div { margin-bottom: 0.8mm !important; padding: 1.2mm 1.65mm !important; }
+  body.apoio-print-tight .abertura,
+  body.apoio-print-tight .bloco-tema,
+  body.apoio-print-tight .subsidio-educador,
+  body.apoio-print-tight .complementando-jovens,
+  body.apoio-print-tight .conclusao-jovens { padding: 2.2mm 2.65mm !important; }
+  body.apoio-print-tight .destaque { padding: 1.8mm 2.4mm !important; }
+  body.apoio-print-tight .licao-betel h2 { margin-bottom: 1.2mm !important; font-size: 14.6pt !important; }
+  body.apoio-print-tight .licao-betel h3 { margin-bottom: 0.9mm !important; font-size: 11.25pt !important; }
+  body.apoio-print-tight .licao-betel p { margin-bottom: 1mm !important; }
+  body.apoio-print-tight .licao-betel ul,
+  body.apoio-print-tight .licao-betel ol { margin-top: 0.75mm !important; margin-bottom: 1.05mm !important; }
+  body.apoio-print-tight .grade-subtopicos { margin-top: 1.35mm !important; }
+  body.apoio-print-tight .subtopico-jovens { margin-bottom: 1.35mm !important; padding: 1.95mm 2.4mm !important; }
+  body.apoio-print-tight .aplicacao-pratica { margin: 1.05mm 0 !important; padding: 1.45mm 2.05mm !important; }
+  body.apoio-print-tight .perguntas-dialogo { margin-top: 1.3mm !important; padding: 1.9mm 2.4mm !important; }
+  body.apoio-print-tight .rodape-social { margin-top: 1.25mm !important; }
+  body.apoio-print-tight .rodape-social-conteudo { padding-top: 1.25mm !important; }
 }
