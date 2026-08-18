@@ -6,6 +6,7 @@
   <meta name="description" content="Apoio pedagógico da Lição 6: O LIVRO DE SALMOS. Classe Jovens, 3º trimestre de 2026.">
   <title>Lição 6 — O LIVRO DE SALMOS | Apoio Pedagógico Jovens</title>
   <link rel="stylesheet" href="../assets/css/estilos.css">
+  <script src="../assets/js/apoio-pedagogico-jovens.js" defer></script>
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -16,7 +17,7 @@
   </header>
   <main id="conteudo" class="pagina-apoio">
     <div class="acoes-documento">
-      <button class="btn-imprimir" type="button" onclick="const tituloOriginal=document.title; const numeroLicao=(location.pathname.match(/licao-(\d+)/i)||[,''])[1]; document.title=`Apoio Pedagógico Lição ${Number(numeroLicao)} Jovens`; window.addEventListener('afterprint',()=>{document.title=tituloOriginal;},{once:true}); window.print();" aria-label="Imprimir este apoio pedagógico ou salvar como PDF">
+      <button class="btn-imprimir" type="button" data-print-jovens aria-label="Imprimir este apoio pedagógico ou salvar como PDF">
         Imprimir / Salvar em PDF
       </button>
     </div>
